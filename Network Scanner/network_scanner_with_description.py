@@ -44,7 +44,7 @@ def scan(ip):
     #print(arp_request.summary()) # This line will print the summary of the request
     #arp_request.show() # This line will print the full details of ARP request
     
-    broadcast = scapy.Ether()
+    broadcast = scapy.Ether(dst="ff:ff:ff:ff:ff:ff")
     #print(broadcast.summary()) # This line will print the summary of the broadcast.In the summary, you can see from which MAC address ethernet packets are being sent to Broadcast MAC address.
     #broadcast.show() # This line will print the full details of broadcast request
     
