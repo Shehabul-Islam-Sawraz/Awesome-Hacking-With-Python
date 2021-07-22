@@ -36,7 +36,7 @@ def get_current_mac_address(interface):
 
 
 options = get_arguments() 
-interface = options.Interface
+interface = options.interface
 new_mac = options.new_mac
 
 current_mac = get_current_mac_address(interface)

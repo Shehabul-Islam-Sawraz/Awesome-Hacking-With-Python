@@ -5,8 +5,10 @@ import argparse
 
 def get_arguments():
     parser = argparse.ArgumentParser()
-    parser.add_argument("-t","--target",dest="target",help="Target IP/IP Range\nExample: python3 mac_changer.py -t 10.0.1.1/24")
+    parser.add_argument("-t","--target",dest="target",help="Target IP/IP Range\nExample: python3 network_scanner.py -t 10.0.1.1/24")
     options = parser.parse_args() 
+    if not options.target:
+        parser.error("[-] Please specify a target range, use --help for more info.")
     return options
 
 def scan(ip):

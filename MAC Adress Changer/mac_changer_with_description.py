@@ -52,7 +52,7 @@ def get_current_mac_address(interface):
 
 
 options = get_arguments() # Calling the function that returns values
-interface = options.Interface # Parsing value of the interface from options
+interface = options.interface # Parsing value of the interface from options
 new_mac = options.new_mac # Parsing value of the mac address from options
 
 current_mac = get_current_mac_address(interface)
