@@ -1,0 +1,20 @@
+Could not get public IP address...
+Processor: Intel64 Family 6 Model 142 Stepping 11, GenuineIntel
+System: Windows 10.0.19041
+Machine: AMD64
+HostName: LAPTOP-EAK2S8MV
+Private IP address: 192.168.0.105
+Could not get public IP address...
+Processor: Intel64 Family 6 Model 142 Stepping 11, GenuineIntel
+System: Windows 10.0.19041
+Machine: AMD64
+HostName: LAPTOP-EAK2S8MV
+Private IP address: 192.168.0.105
+Could not get public IP address...
+Processor: Intel64 Family 6 Model 142 Stepping 11, GenuineIntel
+System: Windows 10.0.19041
+Machine: AMD64
+HostName: LAPTOP-EAK2S8MV
+Private IP address: 192.168.0.105
+
+
